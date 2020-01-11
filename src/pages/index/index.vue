@@ -70,9 +70,15 @@
 				<view class="shop">
 					<view class="the-container">
 						<view class="container">
-                             <view class="shop_list">
-								 
-							 </view>
+							<view class="shop_list">
+								<view class="list">
+									<view><text class="title">曲面屏手机</text></view>
+									<view>
+										<image src="../../static/image/sp1.jpg" style="width: 124rpx;height: 124rpx;"></image>
+									</view>
+									<view> <text class="footer">热销爆款</text></view>
+								</view>
+							</view>
 						</view>
 					</view>
 				</view>
@@ -212,6 +218,27 @@
 
 			.shop {
 				background-color: #7c0700;
+
+				.the-container {
+					.container {
+						.shop_list {
+							background-size: cover;
+							width: 174rpx;
+							height: 240rpx;
+							background-image: url(../../static/image/bg2.png);
+
+							.list {
+								width: 174rpx;
+								height: 240rpx;
+								.title{
+								
+								}
+							}
+						}
+
+						.image {}
+					}
+				}
 			}
 
 			.goods {
