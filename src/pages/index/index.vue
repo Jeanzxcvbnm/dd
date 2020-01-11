@@ -22,24 +22,59 @@
 						</a>
 					</view>
 				</view>
-				<view class="miao">
-					<view class="title">
-						<view>
-							<text class="name">京东秒杀</text>
-						</view>
-						<view>
-							<text class="qiang">更多好货限时疯抢&gt;</text>
+				<!-- 秒杀 -->
+				<view class="seckill">
+					<view class="container">
+						<view class="sec_kill">
+							<view class="title_wrap">
+								<a><text class="title">京东秒杀</text> 10点场 1:18:18</a>
+								<a class="more">
+									更多秒杀
+									<uni-badge text=">" size="small" type="error"></uni-badge>
+								</a>
+							</view>
+							<scroll-view class="silder" scroll-x="true">
+								<view class="the-container">
+									<view class="container" v-for="(item,index) in miao" :key="index">
+										<image class="image" :src="item.url"></image>
+										<view class="priceCon">
+											<view class="xian">{{item.news}}</view>
+											<view class="yuan">{{item.old}}</view>
+										</view>
+									</view>
+								</view>
+							</scroll-view>
 						</view>
 					</view>
-					<scroll-view scroll-x="true" show-scrollbar="false">
-						<view class="mlist">	
-							<view class="lst" v-for="(item,index) in miao" :key="index">
-								<image :src="item.url" class="mt"></image>
-								<view><text class="xian">{{item.old}}</text></view>
-								<view><text class="yuan">{{item.news}}</text></view>
-							</view>
+				</view>
+				<!-- 新人 -->
+				<view class="people">
+					<view class="the-container">
+						<image class="img1" src="../../static/image/new1.png"></image>
+						<image class="img2" src="../../static/image/new2.png"></image>
+					</view>
+				</view>
+				<!-- 今日主推 -->
+				<view class="recommend">
+					<view class="the-container">
+						<image src="../../static/image/tui.png" class="tui"></image>
+						<image src="../../static/image/da.png" class="da"></image>
+					</view>
+				</view>
+				<!-- 年货大街 -->
+				<view class="goods">
+					<view class="container">
+						<image src="../../static/image/nian.png" class="nian"></image>
+					</view>
+				</view>
+				<view class="shop">
+					<view class="the-container">
+						<view class="container">
+                             <view class="shop_list">
+								 
+							 </view>
 						</view>
-					</scroll-view>
+					</view>
 				</view>
 			</scroll-view>
 		</view>
@@ -48,10 +83,12 @@
 
 <script lang="ts">
 	//import {Vue,Component} from 'vue-property-decorator';
-	import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
+	import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue';
+	import uniBadge from '@/components/uni-badge/uni-badge.vue'
 	export default {
 		components: {
-			uniSearchBar
+			uniSearchBar,
+			uniBadge
 		},
 		data() {
 			return {
@@ -132,51 +169,6 @@
 
 <style lang="scss">
 	.content {
-		.miao {
-			.title {
-				display: flex;
-				justify-content: space-between;
-				padding: 0px 10rpx 0rpx 10rpx;
-
-				.name {
-					font-size: 15px;
-					font-weight: 600;
-				}
-
-				.qiang {
-					font-size: 24rpx;
-					color: #999999;
-				}
-			}
-
-			.mlist {
-				display: flex;
-
-				.lst {
-					width: 170rpx;
-					text-align: center;
-					padding-right: 20rpx;
-
-					.mt {
-						width: 160rpx;
-						height: 160rpx;
-					}
-
-					.xian {
-						color: red;
-
-					}
-
-					.yuan {
-						font-size: 22rpx;
-						color: #999999;
-						text-decoration: line-through;
-					}
-				}
-
-			}
-		}
-
 		.wrappe-box {
 			height: 166.8rpx;
 			overflow: hidden;
@@ -216,7 +208,42 @@
 		}
 
 		.scroll {
-			height: 1130rpx;
+			height: 1420rpx;
+
+			.shop {
+				background-color: #7c0700;
+			}
+
+			.goods {
+				background-color: #7c0700;
+
+				.container {
+					line-height: 108rpx;
+
+					.nian {
+						width: 100%;
+						height: 108rpx;
+					}
+				}
+			}
+
+			.recommend {
+				background-color: #7c0700;
+
+				.the-container {
+					.tui {
+						width: 100%;
+						height: 72.54rpx;
+					}
+
+					.da {
+						height: 200rpx;
+						width: 100%;
+					}
+				}
+			}
+
+
 
 			.scr-view {
 				height: 333.96rpx;
@@ -227,6 +254,92 @@
 					border-radius: 5px;
 					width: 750rpx;
 					height: 300rpx;
+				}
+			}
+
+			.people {
+				background-color: #7c0700;
+
+				.the-container {
+					display: flex;
+					padding: 0rpx 24rpx 24rpx 24rpx;
+
+					.img1 {
+						width: 378rpx;
+						height: 254rpx;
+						border-top-left-radius: 14rpx;
+						border-bottom-left-radius: 14rpx;
+					}
+
+					.img2 {
+						width: 378rpx;
+						height: 254rpx;
+						border-top-right-radius: 14rpx;
+						border-bottom-right-radius: 14rpx;
+					}
+				}
+			}
+
+			.seckill {
+				background-color: #7c0700;
+
+				.container {
+					padding: 24rpx;
+					position: relative;
+
+					.sec_kill {
+						border-radius: 12rpx;
+						box-shadow: 0rpx 2rpx 2rpx #f2f2f2;
+						background: #FFFFFF;
+
+						.title_wrap {
+							padding: 0rpx 20rpx 0rpx 20rpx;
+							height: 72.54rpx;
+							display: flex;
+							line-height: 72.54rpx;
+							justify-content: space-between;
+
+							.title {
+								font-size: 34rpx;
+								font-weight: 600;
+							}
+
+							.more {
+								display: flex;
+								align-items: center;
+								color: #f23030;
+							}
+						}
+
+						.silder {
+							.the-container {
+								width: 200rpx;
+								display: flex;
+
+								.container {
+									.image {
+										width: 162rpx;
+										height: 140rpx;
+									}
+
+									.priceCon {
+										text-align: center;
+
+										.xian {
+											font-weight: 600;
+											color: #f23030;
+										}
+
+										.yuan {
+											font-size: 24rpx;
+											color: #999999;
+											text-decoration: line-through;
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
