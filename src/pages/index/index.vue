@@ -70,13 +70,105 @@
 				<view class="shop">
 					<view class="the-container">
 						<view class="container">
-							<view class="shop_list">
+							<view class="shop_list" v-for="(item,index) in dd" :key="index">
 								<view class="list">
-									<view><text class="title">曲面屏手机</text></view>
-									<view>
-										<image src="../../static/image/sp1.jpg" style="width: 124rpx;height: 124rpx;"></image>
+									<view class="title"><text>{{item.title}}</text></view>
+									<view class="img">
+										<image :src="item.url"></image>
 									</view>
-									<view> <text class="footer">热销爆款</text></view>
+									<view class="footer"> <text>{{item.footer}}</text></view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="shop2">
+					<view class="container">
+						<view class="shop2_list" v-for="(item,index) in dd2" :key="index">
+							<view class="image">
+								<image :src="item.url"></image>
+							</view>
+							<view class="jian">
+								<text>{{item.jian}}</text>
+							</view>
+							<view class="footer">
+								<text>{{item.title}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="shop3">
+					<view class="container">
+						<view class="shop2_list" v-for="(item,index) in dd2" :key="index">
+							<view class="image">
+								<image :src="item.url"></image>
+							</view>
+							<view class="jian">
+								<text>{{item.jian}}</text>
+							</view>
+							<view class="footer">
+								<text>{{item.title}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+				<!-- 东家小院 -->
+				<view class="dong">
+					<view class="fir_tit">
+						<image src="../../static/image/dong.png"></image>
+					</view>
+					<view class="content">
+						<view class="footer">
+							<view class="the-container" v-for="(item,index) in 2" :key="index">
+								<view class="first">
+									<text class="j_tit">精美客厅</text>
+									<text class="j_ke">打造专属的精美客厅</text>
+								</view>
+								<view class="second">
+									<image src="../../static/image/ke1.jpg"></image>
+									<image src="../../static/image/ke2.jpg"></image>
+								</view>
+							</view>
+						</view>
+						<view class="footer-98">
+							<view class="fit">
+								<view class="fit_item">
+									<view class="cell" v-for="(item,index) in 4" :key="index">
+										<view class="real_show">
+											<view>
+												<view><text class="title">自拍必备</text></view>
+												<view><text class="con">美颜拍摄</text></view>
+											</view>
+											<view class="img">
+												<image src="../../static/image/sp1.jpg"></image>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<!-- 每日逛 -->
+				<view class="expo">
+					<view class="pic">
+						<image src="../../static/image/gg.png"></image>
+					</view>
+					<view class="expo_footer">
+						<view class="foot_margin">
+							<view class="footer_bottom">
+								<view class="fit">
+									<view class="item">
+										<view class="real-show">
+											<view class="text">
+												<view><text>免息星球</text></view>
+												<view><text>白条免息够</text></view>
+												<view>
+													<image src="../../static/image/sp1.jpg" style="width: 120rpx;height: 120rpx;"></image>
+												</view>
+											</view>
+										</view>
+									</view>
 								</view>
 							</view>
 						</view>
@@ -167,6 +259,47 @@
 						path: '',
 						href: '#'
 					},
+				],
+				dd: [{
+						url: '../../static/image/one.jpg',
+						title: '曲面屏手机',
+						footer: '热销爆款'
+					},
+					{
+						url: '../../static/image/two.jpg',
+						title: '曲面屏手机',
+						footer: '热销爆款'
+					},
+					{
+						url: '../../static/image/three.jpg',
+						title: '曲面屏手机',
+						footer: '热销爆款'
+					},
+					{
+						url: '../../static/image/four.jpg',
+						title: '曲面屏手机',
+						footer: '热销爆款'
+					}
+				],
+				dd2: [{
+						url: '../../static/image/sp1.jpg',
+						jian: '满500减60',
+						title: '品质爆款'
+					},
+					{
+						url: '../../static/image/sp2.jpg',
+						jian: '满500减60',
+						title: '品质爆款'
+					},
+					{
+						url: '../../static/image/sp3.jpg',
+						jian: '满500减60',
+						title: '品质爆款'
+					}, {
+						url: '../../static/image/sp1.jpg',
+						jian: '满500减60',
+						title: '品质爆款'
+					}
 				]
 			}
 		}
@@ -175,6 +308,12 @@
 
 <style lang="scss">
 	.content {
+		.text {
+			background: linear-gradient(90deg, #45CAFF, #1471FB);
+			color: transparent;
+			-webkit-background-clip: text;
+		}
+
 		.wrappe-box {
 			height: 166.8rpx;
 			overflow: hidden;
@@ -216,22 +355,288 @@
 		.scroll {
 			height: 1420rpx;
 
+			.expo {
+				background-color: #7c0700;
+
+				.pic {
+					image {
+						width: 100%;
+						height: 70rpx;
+					}
+				}
+
+				.expo_footer {
+					background-color: #7c0700;
+
+					.foot_margin {
+						margin: 0rpx 20rpx 20rpx 20rpx;
+
+						.footer_bottom {
+							border-bottom: 1px solid #7c0700;
+
+							.fit {
+								height: 240rpx;
+								.item{
+									background: #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.dong {
+				background-color: #7c0700;
+
+				.content {
+					margin: 20rpx;
+					border-radius: 10rpx;
+					background: #fff;
+
+					.footer-98 {
+						background-color: #7c0700;
+
+						.fit {
+							height: 240rpx;
+
+							.fit_item {
+								width: 100%;
+								background-color: #fff;
+								font-size: 100%;
+								display: flex;
+
+								.cell {
+									width: 178rpx;
+									border-right: 2rpx solid #7c0700;
+
+
+									.real_show {
+										padding: 13rpx 0rpx 10rpx 20rpx;
+
+										.title {
+											color: black;
+											font-size: 32rpx;
+											font-weight: 700;
+										}
+
+										.con {
+											font-size: 24rpx;
+											color: #666771;
+										}
+
+										.img {
+											image {
+												width: 120rpx;
+												height: 120rpx;
+											}
+										}
+									}
+								}
+
+								.cell:last-child {
+									border-right: none;
+								}
+
+							}
+						}
+					}
+
+					.footer {
+						border-bottom: 1px solid #7c0700;
+						display: flex;
+						padding: 13rpx 0rpx 10rpx 0rpx;
+
+						.the-container {
+							width: 352rpx;
+							height: 216rpx;
+							border-right: 1px solid #7c0700;
+
+							.first {
+
+								padding-left: 18rpx;
+
+								.j_tit {
+									font-size: 32rpx;
+									color: transparent;
+									background: linear-gradient(90deg, #45CAFF, #1471FB);
+									display: inline-block;
+									-webkit-background-clip: text;
+								}
+
+								.j_ke {
+									color: #666771;
+									font-size: 24rpx;
+									display: block;
+								}
+							}
+
+							.second {
+								padding: 0rpx 14rpx 0rpx 14rpx;
+
+								image {
+									margin: 11rpx 14rpx 0rpx 14rpx;
+									width: 120rpx;
+									height: 120rpx;
+								}
+							}
+						}
+
+						.the-container:last-child {
+							border-right: none;
+						}
+					}
+				}
+
+				.fir_tit {
+					image {
+						width: 100%;
+						height: 70rpx;
+					}
+				}
+			}
+
+			.shop3 {
+				background-color: #7c0700;
+				padding-bottom: 20rpx;
+
+				.container {
+					display: flex;
+					padding-top: 2rpx;
+
+					.shop2_list {
+						margin-left: 10rpx;
+						background-image: url(../../static/image/bg3.png);
+						background-repeat: no-repeat;
+						background-size: cover;
+						width: 176rpx;
+						height: 240rpx;
+
+						.jian {
+							display: flex;
+							justify-content: center;
+
+							text {
+								color: #fff;
+								font-size: 24rpx;
+							}
+						}
+
+						.footer {
+							text-align: center;
+
+							text {
+								color: #fff;
+							}
+						}
+
+						.image {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 174rpx;
+							height: 146rpx;
+
+							image {
+								padding-top: 10rpx;
+								width: 120rpx;
+								height: 124rpx;
+							}
+						}
+					}
+				}
+
+			}
+
+			.shop2 {
+				background-color: #7c0700;
+
+				.container {
+					display: flex;
+					padding-top: 24rpx;
+
+					.shop2_list {
+						margin-left: 10rpx;
+						background-image: url(../../static/image/bg3.png);
+						background-repeat: no-repeat;
+						background-size: cover;
+						width: 176rpx;
+						height: 240rpx;
+
+						.jian {
+							display: flex;
+							justify-content: center;
+
+							text {
+								color: #fff;
+								font-size: 24rpx;
+							}
+						}
+
+						.footer {
+							text-align: center;
+
+							text {
+								color: #fff;
+							}
+						}
+
+						.image {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 174rpx;
+							height: 146rpx;
+
+							image {
+								padding-top: 10rpx;
+								width: 120rpx;
+								height: 124rpx;
+							}
+						}
+					}
+				}
+
+			}
+
 			.shop {
 				background-color: #7c0700;
 
 				.the-container {
 					.container {
+						display: flex;
+
 						.shop_list {
+							margin-left: 10rpx;
 							background-size: cover;
-							width: 174rpx;
+							width: 176rpx;
 							height: 240rpx;
 							background-image: url(../../static/image/bg2.png);
 
 							.list {
 								width: 174rpx;
 								height: 240rpx;
-								.title{
-								
+
+								.img {
+									text-align: center;
+
+									image {
+										width: 120rpx;
+										height: 116rpx;
+									}
+								}
+
+								.title {
+									text-align: center;
+									height: 56rpx;
+
+									text {
+										color: #fff;
+									}
+								}
+
+								.footer {
+									text-align: center;
+									color: #fff;
 								}
 							}
 						}
@@ -245,8 +650,6 @@
 				background-color: #7c0700;
 
 				.container {
-					line-height: 108rpx;
-
 					.nian {
 						width: 100%;
 						height: 108rpx;
