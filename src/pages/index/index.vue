@@ -6,20 +6,20 @@
 		<view>
 			<scroll-view scroll-y="true" class="scroll">
 				<view class="scr-view">
-					<swiper indicator-dots="true" indicator-active-color="red" circular="true">
+					<swiper indicator-dots="true" indicator-active-color="red" circular="true" autoplay="true">
 						<swiper-item v-for="(item,index) in list" :key="index">
 							<image :src="item.path" mode="" class="image"></image>
 						</swiper-item>
 					</swiper>
 				</view>
-				<view class="wrappe-box">
-					<view class="item" v-for="(item,index) in nav" :key="index">
-						<a>
-							<view>
-								<image class="image"></image>
+				<view class="nav_bar">
+					<view class="nav_margin">
+						<view class="row">
+							<view class="cell" v-for="(item,index) in 5" :key="index">
+								<image src="../../static/image/sp1.jpg"></image>
+								<text>京东超市</text>
 							</view>
-							<view><text class="text">{{item.name}}</text></view>
-						</a>
+						</view>
 					</view>
 				</view>
 				<!-- 秒杀 -->
@@ -27,10 +27,9 @@
 					<view class="container">
 						<view class="sec_kill">
 							<view class="title_wrap">
-								<a><text class="title">京东秒杀</text> 10点场 1:18:18</a>
+								<a><text class="title">京东秒杀</text> <text class="chang">10点场</text> <text class="time">1:18:18</text> </a>
 								<a class="more">
-									更多秒杀
-									<uni-badge text=">" size="small" type="error"></uni-badge>
+									更多秒杀>
 								</a>
 							</view>
 							<scroll-view class="silder" scroll-x="true">
@@ -57,7 +56,7 @@
 				<!-- 今日主推 -->
 				<view class="recommend">
 					<view class="the-container">
-						<image src="../../static/image/tui.png" class="tui"></image>
+						<image src="../../static/image/jian1.png" class="tui"></image>
 						<image src="../../static/image/da.png" class="da"></image>
 					</view>
 				</view>
@@ -154,21 +153,70 @@
 					<view class="pic">
 						<image src="../../static/image/gg.png"></image>
 					</view>
-					<view class="expo_footer">
-						<view class="foot_margin">
-							<view class="footer_bottom">
-								<view class="fit">
-									<view class="item">
-										<view class="real-show">
-											<view class="text">
-												<view><text>免息星球</text></view>
-												<view><text>白条免息够</text></view>
-												<view>
-													<image src="../../static/image/sp1.jpg" style="width: 120rpx;height: 120rpx;"></image>
+					<view class="ex2">
+						<view class="content">
+							<view class="export_footer">
+								<view class="ex_margin">
+									<view class="ex_height">
+										<view class="ex_row">
+											<view class="el_item" v-for="(item,index) in 4" :key="index">
+												<view class="real_show">
+													<view class="title">
+														<text class="text">免息星球</text>
+														<text class="bt">白条免息购</text>
+													</view>
+													<view class="image">
+														<image src="../../static/image/sp1.jpg"></image>
+													</view>
 												</view>
 											</view>
 										</view>
 									</view>
+								</view>
+							</view>
+							<view class="ex_footer2">
+								<view class="ex2_margin">
+									<view class="ex2_height">
+										<view class="ex2_row">
+											<view class="ex2_item" v-for="(item,index) in 4" :key="index">
+												<view class="real_show">
+													<view class="tit">
+														<text class="text">排行榜</text>
+														<text class="re">热销推荐</text>
+													</view>
+													<view class="image">
+														<image src="../../static/image/sp2.jpg" style="width: 120rpx;height: 120rpx;"></image>
+													</view>
+												</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<!-- 为你推荐 -->
+				<view class="live_footer">
+					<view class="li_margin">
+						<view class="li_padding">
+							<image src="../../static/image/tui.png"></image>
+						</view>
+					</view>
+					<view class="live">
+						<view class="row">
+							<view class="cell" v-for="(item,index) in 10" :key="index">
+								<view class="similar-product">
+									<image class="pic" src="../../static/image/cp1.jpg"></image>
+									<view class="text">
+										<image src="../../static/image/huo.png"></image>
+										<text>海尔（Haier）全自动波轮洗衣机家用洗衣机租房宿舍专用 安心童锁强劲动力超净洗 8公斤新品上市</text>
+									</view>
+									<view class="info">
+										<text class="price">$ <text class="num">799</text></text>
+										<text class="button">看相似</text>
+									</view>
+									<view class="footer"></view>
 								</view>
 							</view>
 						</view>
@@ -222,16 +270,13 @@
 					}
 				],
 				list: [{
-						path: '../../static/image/one.jpg',
+						path: '../../static/image/lun1.jpg',
 					},
 					{
-						path: '../../static/image/two.jpg',
+						path: '../../static/image/lun2.jpg',
 					},
 					{
-						path: '../../static/image/three.jpg',
-					},
-					{
-						path: '../../static/image/four.jpg',
+						path: '../../static/image/lun3.jpg',
 					}
 				],
 				nav: [{
@@ -308,32 +353,34 @@
 
 <style lang="scss">
 	.content {
-		.text {
-			background: linear-gradient(90deg, #45CAFF, #1471FB);
-			color: transparent;
-			-webkit-background-clip: text;
-		}
 
-		.wrappe-box {
-			height: 166.8rpx;
+		.nav_bar {
+			width: 100%;
 			overflow: hidden;
-			padding: 10rpx;
-			display: flex;
+			background: #7c0700;
 
-			.item {
-				width: 220rpx;
-				height: 113rpx;
-				text-align: center;
+			.nav_margin {
+				.row {
+					display: flex;
 
-				.image {
-					width: 100rpx;
-					height: 100rpx;
-					background-color: red;
-					border-radius: 50%;
-				}
+					.cell {
+						margin-top: 10rpx;
+						text-align: center;
+						width: 150rpx;
+						height: 148rpx;
 
-				.text {
-					color: #666666
+						image {
+							margin-top: 10rpx;
+							border-radius: 50%;
+							width: 80rpx;
+							height: 80rpx;
+						}
+
+						text {
+							color: #fff;
+							display: block;
+						}
+					}
 				}
 			}
 
@@ -341,57 +388,259 @@
 
 		.search {
 			width: 100%;
-			background: red;
+			background: #7c0700;
 			display: flex;
 			justify-content: center;
 		}
 
 		.uni-searchbar {
-			background: red;
+			background: #7c0700;
 			width: 550rpx;
 			border: none;
 		}
 
 		.scroll {
-			height: 1420rpx;
+			height: calc(100vh - 102px); //135px
 
-			.expo {
-				background-color: #7c0700;
+			.live_footer {
+				background-color: #f0f2f5;
+				overflow: hidden;
 
-				.pic {
-					image {
+				.live {
+					margin: 0rpx 20rpx 20rpx 20rpx;
+
+					.row {
 						width: 100%;
-						height: 70rpx;
-					}
-				}
+						display: flex;
+						overflow: hidden;
+						flex-wrap: wrap;
+						position: relative;
 
-				.expo_footer {
-					background-color: #7c0700;
+						.cell {
+							width: 351rpx;
+							padding-right: 4rpx;
+							padding-bottom: 8rpx;
 
-					.foot_margin {
-						margin: 0rpx 20rpx 20rpx 20rpx;
+							.similar-product {
+								background-color: #fff;
+								font-size: 0;
+								padding-bottom: 0;
 
-						.footer_bottom {
-							border-bottom: 1px solid #7c0700;
+								.pic {
+									display: inline-block;
+									width: 352rpx;
+									height: 352rpx;
+								}
 
-							.fit {
-								height: 240rpx;
-								.item{
-									background: #fff;
+								.text {
+									height: 62rpx;
+									margin-top: 10rpx;
+									margin-bottom: 6rpx;
+									padding: 0 8rpx;
+									font-size: 26rpx;
+									word-break: break-all;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									color: #232326;
+									display: -webkit-box;
+									-webkit-line-clamp: 2;
+									-webkit-box-orient: vertical;
+									line-height: 32rpx;
+
+									image {
+										margin-right: 8rpx;
+										width: 63.12rpx;
+										height: 26rpx;
+									}
+								}
+
+								.info {
+									height: 52rpx;
+									font-size: 26rpx;
+									display: flex;
+									justify-content: space-between;
+
+									.price {
+										position: relative;
+										top: 2rpx;
+										color: #f23030;
+										display: inline-block;
+										padding: 0 10rpx 0 8rpx;
+										height: 50rpx;
+										line-height: 50rpx;
+
+										.num {
+											font-size: 32rpx;
+										}
+									}
+
+									.button {
+										margin-right: 20rpx;
+										display: flex;
+										width: 98rpx;
+										height: 48rpx;
+										font-size: 24rpx;
+										color: #686868;
+										justify-content: center;
+										align-items: center;
+										border: 1px solid #bfbfbf;
+										border-radius: 8rpx;
+									}
+								}
+
+								.footer {
+									height: 52rpx;
 								}
 							}
 						}
 					}
 				}
+
+				.li_margin {
+					margin-top: 20rpx;
+
+					.li_padding {
+						height: 70rpx;
+						margin: 0rpx 20rpx;
+
+						image {
+							width: 710rpx;
+							height: inherit;
+						}
+					}
+
+
+				}
+			}
+
+			.expo {
+				background-color: #7c0700;
+
+				.pic {
+					height: 70rpx;
+
+					image {
+						width: 100%;
+						height: inherit;
+					}
+				}
+
+				.ex2 {
+					background-color: #7c0700;
+					overflow: hidden;
+
+					.content {
+						margin: 0rpx 20rpx 20rpx 20rpx;
+
+						.ex_footer2 {
+							background-color: #7c0700;
+
+							.ex2_margin {
+								.ex2_height {
+									height: 224rpx;
+
+									.ex2_row {
+										background: #fff;
+										font-size: 100%;
+										width: 100%;
+										display: flex;
+										border-bottom-left-radius: 10rpx;
+										border-bottom-right-radius: 10rpx;
+
+										.ex2_item {
+											width: 177rpx;
+											border-right: 1px solid #7c0700;
+
+											.real_show {
+												padding: 13rpx 0rpx 10rpx 20rpx;
+
+												.tit {
+													.text {
+														background: linear-gradient(90deg, #FF2A2A, #F139D2);
+														color: transparent;
+														-webkit-background-clip: text;
+														font-size: 32rpx;
+													}
+
+													.re {
+														font-size: 24rpx;
+														color: #222222;
+														display: block;
+													}
+												}
+											}
+										}
+									}
+								}
+
+							}
+						}
+
+						.export_footer {
+							background-color: #7c0700;
+							border-bottom: 2rpx solid #7c0700;
+
+							.ex_margin {
+								.ex_height {
+									height: 224rpx;
+
+									.ex_row {
+										font-size: 100%;
+										width: 100%;
+										background-color: #fff;
+										border-top-left-radius: 10rpx;
+										border-top-right-radius: 10rpx;
+										display: flex;
+
+										.el_item {
+											border-right: 1px solid #7c0700;
+											width: 177rpx;
+
+											.real_show {
+												padding: 13rpx 0rpx 10rpx 20rpx;
+
+												.title {
+													.text {
+														background: linear-gradient(90deg, #FF2A2A, #F139D2);
+														color: transparent;
+														-webkit-background-clip: text;
+														font-size: 32rpx;
+													}
+
+													.bt {
+														font-size: 24rpx;
+														color: #222222;
+														display: block;
+													}
+												}
+
+												.image {
+													image {
+														width: 120rpx;
+														height: 120rpx;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+
+
+
 			}
 
 			.dong {
 				background-color: #7c0700;
 
 				.content {
-					margin: 20rpx;
+					margin: 0rpx 20rpx 0rpx 20rpx;
 					border-radius: 10rpx;
 					background: #fff;
+					box-sizing: border-box;
 
 					.footer-98 {
 						background-color: #7c0700;
@@ -404,6 +653,8 @@
 								background-color: #fff;
 								font-size: 100%;
 								display: flex;
+								border-bottom-left-radius: 10rpx;
+								border-bottom-right-radius: 10rpx;
 
 								.cell {
 									width: 178rpx;
@@ -488,16 +739,17 @@
 				}
 
 				.fir_tit {
+					height: 70rpx;
+
 					image {
 						width: 100%;
-						height: 70rpx;
+						height: inherit;
 					}
 				}
 			}
 
 			.shop3 {
 				background-color: #7c0700;
-				padding-bottom: 20rpx;
 
 				.container {
 					display: flex;
@@ -676,23 +928,38 @@
 
 
 			.scr-view {
-				height: 333.96rpx;
+				height: 300rpx;
 				display: flex;
 				justify-content: center;
+				overflow: hidden;
+				background-image: url(../../static/image/bg2.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
 
 				swiper {
-					border-radius: 5px;
-					width: 750rpx;
-					height: 300rpx;
+					margin-top: 10rpx;
+					width: 700rpx;
+					height: 278rpx;
+
+					swiper-item {
+						border-radius: 10rpx;
+
+						.image {
+							width: 700rpx;
+							height: 278rpx;
+						}
+					}
 				}
 			}
 
 			.people {
 				background-color: #7c0700;
+				overflow: hidden;
 
 				.the-container {
 					display: flex;
-					padding: 0rpx 24rpx 24rpx 24rpx;
+					margin: 0px 20rpx;
 
 					.img1 {
 						width: 378rpx;
@@ -711,10 +978,11 @@
 			}
 
 			.seckill {
+				overflow: hidden;
 				background-color: #7c0700;
 
 				.container {
-					padding: 24rpx;
+					margin: 0 24rpx 24rpx 24rpx;
 					position: relative;
 
 					.sec_kill {
@@ -732,6 +1000,18 @@
 							.title {
 								font-size: 34rpx;
 								font-weight: 600;
+
+							}
+
+							.chang {
+								margin: 0 10rpx 0 10rpx;
+								font-weight: 700;
+								font-size: 24rpx;
+								display: inline-block;
+							}
+
+							.time {
+								font-size: 24rpx;
 							}
 
 							.more {
