@@ -24,7 +24,13 @@
 				"navigationBarTitleText": "我的"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/details/index",
+            "style" : {
+				"navigationBarTitleText":"详情"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -40,25 +46,25 @@
 			{
 				"pagePath": "pages/index/index",
 				"iconPath": "static/image/home.png",
-				"selectedIconPath": "static/image/home_fill.png",
+				"selectedIconPath": "static/image/home_fill_light.png",
 				"text": "首页"
 			},
 			{
 				"pagePath": "pages/category/index",
-				"iconPath": "static/image/circle.png",
-				"selectedIconPath": "static/image/circle_fill.png",
+				"iconPath": "static/image/lie.png",
+				"selectedIconPath": "static/image/lie_full.png",
 				"text": "分类"
 			},
 			{
 				"pagePath": "pages/cart/index",
-				"iconPath": "static/image/cart.png",
+				"iconPath": "static/image/cart_light.png",
 				"selectedIconPath": "static/image/cart_fill.png",
 				"text": "购物车"
 			},
 			{
 				"pagePath": "pages/me/index",
-				"iconPath": "static/image/my.png",
-				"selectedIconPath": "static/image/my_fill.png",
+				"iconPath": "static/image/people.png",
+				"selectedIconPath": "static/image/people_fill.png",
 				"text": "我的"
 			}
 		]

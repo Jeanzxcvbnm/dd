@@ -1,7 +1,9 @@
 <template>
 	<view class="content">
 		<view class="search">
-			<uni-search-bar radius="50" bgColor="#ffffff" cancelButton="none" placeholder="搜索"></uni-search-bar>
+			<image class="menu" src="../../static/image/can.png"></image>
+			<uni-search-bar class="bar" radius="50" bgColor="#ffffff" cancelButton="none" placeholder="搜索"></uni-search-bar>
+			<text class="deng">登陆</text>
 		</view>
 		<view>
 			<scroll-view scroll-y="true" class="scroll">
@@ -352,6 +354,16 @@
 </script>
 
 <style lang="scss">
+	/deep/.uni-scroll-view {
+		background-color: #fff;
+
+	}
+
+	/deep/.uni-scroll-view::-webkit-scrollbar {
+		/* 隐藏滚动条，但依旧具备可以滚动的功能 */
+		display: none
+	}
+
 	.content {
 
 		.nav_bar {
@@ -390,14 +402,26 @@
 			width: 100%;
 			background: #7c0700;
 			display: flex;
-			justify-content: center;
+			align-items: center;
+
+			.menu {
+				margin-left: 20rpx;
+				width: 60rpx;
+				height: 60rpx;
+				color: #fff;
+			}
+
+			.deng {
+				color: #fff;
+			}
+
+			.bar {
+				background: #7c0700;
+				width: 550rpx;
+				border: none;
+			}
 		}
 
-		.uni-searchbar {
-			background: #7c0700;
-			width: 550rpx;
-			border: none;
-		}
 
 		.scroll {
 			height: calc(100vh - 102px); //135px
@@ -944,7 +968,6 @@
 
 					swiper-item {
 						border-radius: 10rpx;
-
 						.image {
 							width: 700rpx;
 							height: 278rpx;
